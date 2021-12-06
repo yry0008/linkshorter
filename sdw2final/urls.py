@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from links import views
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.create, name='create'),
+    path('do_create',views.do_create,name='do_create'),
+    path('<token>/', views.index, name='index'),
 ]

@@ -3,10 +3,10 @@ import time
 
 # Create your models here.
 
-class links(models.Model):
-    token = models.TextField()
-    redirect = models.TextField()
-    create_time = models.TimeField()
+class link(models.Model):
+    token = models.CharField(max_length=200)
+    redirect = models.CharField(max_length=200)
+    create_time = models.IntegerField()
     def addlink(self,tk,r):
         self.token = tk
         self.redirect = r

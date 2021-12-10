@@ -1,4 +1,5 @@
 from random import randint
+import configloader
 import time
 from django.http.response import Http404, HttpResponse, HttpResponseNotFound, JsonResponse
 from django.shortcuts import render
@@ -9,6 +10,8 @@ def index(request, token):
     #return HttpResponse(token)
     try:
         l = link.objects.get(token=token)
+        l.count += 1
+        l.save()
     except link.DoesNotExist:
         raise Http404("Link does not exist")
     url = l.redirect
@@ -20,6 +23,7 @@ def create(request):
     return render(request, 'create.html')
 
 def do_create(request):
+    c = configloader.config()
     token = request.POST.get("token")
     redirect = request.POST.get("redirect")
     if token in ["admin","do_create","do_delete","index","stat"]:
@@ -44,7 +48,7 @@ def do_create(request):
     import random
     l.del_token = "".join([chr(random.randint(1,65535)%26+97) for i in range(20)])
     l.save()
-    return JsonResponse({'ret':1, 'msg':'success', 'token':token, 'del_token':l.del_token})
+    return JsonResponse({'ret':1, 'msg':'success', 'baseurl':c.getkey("baseurl"),'token':token, 'del_token':l.del_token})
 
 def do_delete(request):
     token = request.GET.get("token")

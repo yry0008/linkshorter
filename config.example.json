@@ -1,0 +1,14 @@
+{
+    "baseurl":"https://zb.al",
+    "db":"sqlite",
+    "sqlite":{
+        "file":"db.sqlite3"
+    },
+    "mysql": {
+        "host": "",
+        "port": 3306,
+        "database": "",
+        "user": "",
+        "password": ""
+    }
+}

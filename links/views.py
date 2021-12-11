@@ -10,7 +10,7 @@ def index(request, token):
     #return HttpResponse(token)
     try:
         l = link.objects.get(token=token)
-        l.count += 1
+        l.cnt += 1
         l.save()
     except link.DoesNotExist:
         raise Http404("Link does not exist")

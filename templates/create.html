@@ -34,7 +34,7 @@
                     success: function(data){
                         if(data.ret){
                             newlink = data.baseurl + "/" + data.token;
-                            dellink = data.baseurl + "/" + data.del_token;
+                            dellink = data.baseurl + "/do_delete?token=" + data.del_token;
                             $("#newlink").html("<p>Link Generate Successful</p><p>Shortened Link is <code>"+newlink+"</code></p><p>Delete Link is <code>"+dellink+"</code></p>");
                         }
                         else{

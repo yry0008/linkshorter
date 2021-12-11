@@ -18,9 +18,7 @@ def index(request, token):
     return render(request, 'index.html', {'url': url})
 
 def create(request):
-
-    return HttpResponse('create')
-    return render(request, 'create.html')
+    return render(request, 'create.html',{'baseurl':configloader.config().getkey("baseurl")})
 
 def do_create(request):
     c = configloader.config()

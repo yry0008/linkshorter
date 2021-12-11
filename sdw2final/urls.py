@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls.static import static
 from links import views
+from sdw2final import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.create, name='create'),
     path('do_create',views.do_create,name='do_create'),
-    path('do_delete',views.do_delete,name='do_delete'),
-    path('<token>/', views.index, name='index'),
+    path('do_delete',views.do_delete,name='do_delete')] + static(settings.STATIC_URL,) + [path('<token>/', views.index, name='index')
 ]

@@ -1,5 +1,6 @@
 {
     "baseurl":"https://zb.al",
+    "debug":true,
     "db":"sqlite",
     "sqlite":{
         "file":"db.sqlite3"

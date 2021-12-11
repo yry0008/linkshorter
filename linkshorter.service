@@ -1,0 +1,15 @@
+[Unit]
+Description=linkshorter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/opt/linkshorter
+ExecStart=/usr/bin/python3 manage.py runserver
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

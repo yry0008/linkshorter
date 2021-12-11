@@ -16,6 +16,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+c = configloader.config()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -24,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-f)gz7zlc!w7lhl671v(hdqp^rivk%89e9tvs52vbg$e3fsb8qz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = c.getkey('debug')
 
 ALLOWED_HOSTS = ["*"]
 
@@ -76,7 +77,6 @@ WSGI_APPLICATION = 'sdw2final.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-c = configloader.config()
 if c.getkey('db') == 'sqlite':
     DATABASES = {
         'default': {

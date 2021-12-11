@@ -3,3 +3,4 @@ __pycache__
 db.sqlite3
 .ds_store
 config.json
+deploy_static

@@ -11,5 +11,6 @@
         "database": "",
         "user": "",
         "password": ""
-    }
+    },
+    "static_path": "/var/www/html/static"
 }

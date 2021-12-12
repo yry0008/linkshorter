@@ -36,10 +36,7 @@ label {
     cursor: pointer;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
+
 
 input[type="radio"] {
     position: absolute;
@@ -61,6 +58,12 @@ input[type="radio"] {
   float: left;
   width: 33.33%;
   padding: 50px;
+}
+
+.back{
+	background-attachment:fixed;
+	background-size:cover;
+	background:#A3D1D1;
 }
 
 .clearfix::after {
@@ -135,90 +138,6 @@ input[type="radio"] {
     background: currentColor;
 }
 
-/* MIMIC CLICK EVENT
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-[id="image1"]:checked ~ .container .featured-list li:nth-child(1),
-[id="image2"]:checked ~ .container .featured-list li:nth-child(2),
-[id="image3"]:checked ~ .container .featured-list li:nth-child(3),
-[id="image4"]:checked ~ .container .featured-list li:nth-child(4),
-[id="image5"]:checked ~ .container .featured-list li:nth-child(5),
-[id="image6"]:checked ~ .container .featured-list li:nth-child(6),
-[id="image7"]:checked ~ .container .featured-list li:nth-child(7),
-[id="image8"]:checked ~ .container .featured-list li:nth-child(8),
-[id="image9"]:checked ~ .container .featured-list li:nth-child(9),
-[id="image10"]:checked ~ .container .featured-list li:nth-child(10),
-[id^="image"]:checked ~ .container .arrows [for^="image"]:hover::before,
-[id^="image"]:checked ~ .container .arrows [for^="image"]:hover::after {
-    opacity: 1;
-}
-
-[id="image1"]:checked ~ .container .arrows [for="image10"]::before,
-[id="image2"]:checked ~ .container .arrows [for="image1"]::before,
-[id="image3"]:checked ~ .container .arrows [for="image2"]::before,
-[id="image4"]:checked ~ .container .arrows [for="image3"]::before,
-[id="image5"]:checked ~ .container .arrows [for="image4"]::before,
-[id="image6"]:checked ~ .container .arrows [for="image5"]::before, 
-[id="image7"]:checked ~ .container .arrows [for="image6"]::before,
-[id="image8"]:checked ~ .container .arrows [for="image7"]::before,
-[id="image9"]:checked ~ .container .arrows [for="image8"]::before, 
-[id="image10"]:checked ~ .container .arrows [for="image9"]::before{
-    content: '';
-    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/arrow-prev-slideshow.svg);
-}
-
-[id="image1"]:checked ~ .container .arrows [for="image2"]::after,
-[id="image2"]:checked ~ .container .arrows [for="image3"]::after,
-[id="image3"]:checked ~ .container .arrows [for="image4"]::after,
-[id="image4"]:checked ~ .container .arrows [for="image5"]::after,
-[id="image5"]:checked ~ .container .arrows [for="image6"]::after,
-[id="image6"]:checked ~ .container .arrows [for="image7"]::after,
-[id="image7"]:checked ~ .container .arrows [for="image8"]::after,
-[id="image8"]:checked ~ .container .arrows [for="image9"]::after,
-[id="image9"]:checked ~ .container .arrows [for="image10"]::after,
-[id="image10"]:checked ~ .container .arrows [for="image1"]::after{
-    content: '';
-    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/arrow-next-slideshow.svg);
-}
-
-[id="image1"]:checked ~ .container .dots [for="image1"],
-[id="image2"]:checked ~ .container .dots [for="image2"],
-[id="image3"]:checked ~ .container .dots [for="image3"], 
-[id="image4"]:checked ~ .container .dots [for="image4"],
-[id="image5"]:checked ~ .container .dots [for="image5"],
-[id="image6"]:checked ~ .container .dots [for="image6"], 
-[id="image7"]:checked ~ .container .dots [for="image7"],
-[id="image8"]:checked ~ .container .dots [for="image8"],
-[id="image9"]:checked ~ .container .dots [for="image9"], 
-[id="image10"]:checked ~ .container .dots [for="image10"] {
-    background: currentColor;
-}
-
-[id="image1"]:checked ~ .container [for="image1"] .outer,
-[id="image2"]:checked ~ .container [for="image2"] .outer,
-[id="image3"]:checked ~ .container [for="image3"] .outer, 
-[id="image4"]:checked ~ .container [for="image4"] .outer,
-[id="image5"]:checked ~ .container [for="image5"] .outer,
-[id="image6"]:checked ~ .container [for="image6"] .outer,
-[id="image7"]:checked ~ .container [for="image7"] .outer,
-[id="image8"]:checked ~ .container [for="image8"] .outer,
-[id="image9"]:checked ~ .container [for="image9"] .outer,
-[id="image10"]:checked ~ .container [for="image10"] .outer{
-    background: var(--overlay);
-}
-
-[id="image1"]:checked ~ .container [for="image1"] .inner,
-[id="image2"]:checked ~ .container [for="image2"] .inner,
-[id="image3"]:checked ~ .container [for="image3"] .inner, 
-[id="image4"]:checked ~ .container [for="image4"] .inner,
-[id="image5"]:checked ~ .container [for="image5"] .inner,
-[id="image6"]:checked ~ .container [for="image6"] .inner,
-[id="image7"]:checked ~ .container [for="image7"] .inner,
-[id="image8"]:checked ~ .container [for="image8"] .inner,
-[id="image9"]:checked ~ .container [for="image9"] .inner,
-[id="image10"]:checked ~ .container [for="image10"] .inner{
-    opacity: 1;
-    transform: none;
-}
 
 /* Text
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -230,7 +149,7 @@ input[type="radio"] {
 		background:#EEE9E9;
 		margin-left:0px;
 		margin-top:0px;
-		height：1800px；
+		height:1800px；
 	}
 	.c2
 	{
@@ -269,9 +188,13 @@ input[type="radio"] {
 	table {
 		border: 1px solid black;
 		outline-style: solid;
-		outline-color: rgb(255, 255, 255)
+		outline-color: rgb(255, 255, 255);
 		outline-width: 4px;
 		background-image:linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+	}
+	a {
+		text-decoration: none;
+		color: inherit;
 	}
 	
 	.s2 {
@@ -307,7 +230,7 @@ input[type="radio"] {
 		height:400px;
 	}
 /* Dormitory1 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-	.one{position:absolute;broder:dotted 3px black;top:170px;left:20px;height:300;width:300px;}
+	.one{position:absolute;border:dotted 3px black;top:170px;left:20px;height:300;width:300px;}
 	#pic1{position:absolute;top:300px;left:660px;height:300;width:560px;}
 	#pic2{position:absolute;top:300px;left:30px;height:300;width:600px;}
 	.t1{position:absolute;top:800px;left:140px;height:300;width:1000px;}

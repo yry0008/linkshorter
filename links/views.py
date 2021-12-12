@@ -24,15 +24,19 @@ def do_create(request):
     c = configloader.config()
     token = request.POST.get("token")
     redirect = request.POST.get("redirect")
-    if token in ["admin","do_create","do_delete","index","stat"]:
+    if token in ["admin","do_create","do_delete","index","stat","about","api"]:
         return JsonResponse({'ret':0, 'msg':'Invalid token'})
     if token == None:
         import random
         token = "".join([chr(random.randint(1,65535)%26+97) for i in range(8)])
+        while link.objects.filter(token=token).exists():
+            token = "".join([chr(random.randint(1,65535)%26+97) for i in range(8)])
     token = token.replace(" ","")
     if token == "":
         import random
         token = "".join([chr(random.randint(1,65535)%26+97) for i in range(8)])
+        while link.objects.filter(token=token).exists():
+            token = "".join([chr(random.randint(1,65535)%26+97) for i in range(8)])
 
     try:
         l = link.objects.get(token=token)
@@ -45,6 +49,8 @@ def do_create(request):
     l.create_time = int(time.time())
     import random
     l.del_token = "".join([chr(random.randint(1,65535)%26+97) for i in range(20)])
+    while link.objects.filter(del_token=l.del_token).exists():
+        l.del_token = "".join([chr(random.randint(1,65535)%26+97) for i in range(20)])
     l.save()
     return JsonResponse({'ret':1, 'msg':'success', 'baseurl':c.getkey("baseurl"),'token':token, 'del_token':l.del_token})
 
@@ -58,3 +64,15 @@ def do_delete(request):
         return JsonResponse({'ret':0, 'msg':'token does not exist'})
     l.delete()
     return JsonResponse({'ret':1, 'msg':'success'})
+
+def about(request):
+    return render(request, 'about.html')
+
+
+def stat(request):
+    l = link.objects.all()
+    links_count = len(l)
+    process_count = 0
+    for i in l:
+        process_count += i.cnt
+    return render(request, 'stat.html', {'links_count':links_count, 'process_count':process_count})

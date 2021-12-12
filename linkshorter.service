@@ -8,7 +8,7 @@ Type=simple
 User=root
 Group=root
 WorkingDirectory=/opt/linkshorter
-ExecStart=/usr/bin/python3 manage.py runserver
+ExecStart=/usr/bin/python3 manage.py runserver 127.0.0.1:9807
 Restart=always
 
 [Install]

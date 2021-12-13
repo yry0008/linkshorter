@@ -1,4 +1,3 @@
-from bs4.dammit import encoding_res
 from django.db import models
 import time
 

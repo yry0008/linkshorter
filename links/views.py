@@ -47,6 +47,8 @@ def do_create(request):
         return JsonResponse({'ret':0, 'msg':'token already exists'})
     except link.DoesNotExist:
         pass
+    if not redirect.startswith("http"):
+         return JsonResponse({'ret':0, 'msg':'Invaild Link!'})
     l = link()
     l.token = token
     l.redirect = redirect
@@ -79,4 +81,6 @@ def stat(request):
     process_count = 0
     for i in l:
         process_count += i.cnt
-    return render(request, 'stat.html', {'links_count':links_count, 'process_count':process_count})
+    sorted_l = sorted(l, key=lambda x:x.cnt, reverse=True)
+    l1 = sorted_l[0:10]
+    return render(request, 'stat.html', {'links_count':links_count, 'process_count':process_count,"links":l1})

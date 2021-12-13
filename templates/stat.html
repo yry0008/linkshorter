@@ -17,6 +17,21 @@
 			<br>
 			<p>Totally redirect {{process_count}} times.</p>
 
+			<br>
+			<h3 style="text-align: center;">Ranklist</h3>
+			<table class="table">
+				<tr>
+					<th>No.</th>
+					<th>Title</th>
+					<th>Redirect Times</th>
+				</tr>
+				{% for link in links %}
+				<tr>
+					<th>{{forloop.counter}}</th>
+					<td>{{link.get_title}}</td>
+					<td>{{link.cnt}}</td>
+				</tr>
+				{% endfor %}
 		</div>
 	</div>
 </body>

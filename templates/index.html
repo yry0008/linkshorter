@@ -2,12 +2,12 @@
 <html>
     <head>
         <script>
-            window.setTimeout('location.href=\'{{url}}\'', 5000);
+            window.setTimeout('location.href=\'{{url}}\'', {{delay}}*1000);
         </script>
         <title>Redirecting</title>
     </head>
     <body>
         <h1>Redirecting</h1>
-        <p>You will be redirected in 5 seconds.</p>
+        <p>You will be redirected in {{delay}} seconds.</p>
     </body>
 </html>

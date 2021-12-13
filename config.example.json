@@ -12,5 +12,6 @@
         "user": "",
         "password": ""
     },
-    "static_path": "/var/www/html/static"
+    "static_path": "/var/www/html/static",
+    "delay":3
 }

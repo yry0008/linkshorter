@@ -15,7 +15,11 @@ def index(request, token):
     except link.DoesNotExist:
         raise Http404("Link does not exist")
     url = l.redirect
-    return render(request, 'index.html', {'url': url})
+    c = configloader.config()
+    delay = c.getkey("delay")
+    if delay == None:
+        delay = 5
+    return render(request, 'index.html', {'url': url, 'delay':delay})
 
 def create(request):
     return render(request, 'create.html',{'baseurl':configloader.config().getkey("baseurl")})

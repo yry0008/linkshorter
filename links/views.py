@@ -47,7 +47,7 @@ def do_create(request):
         return JsonResponse({'ret':0, 'msg':'token already exists'})
     except link.DoesNotExist:
         pass
-    if not redirect.startwith("http"):
+    if not redirect.startswith("http"):
         return JsonResponse({'ret':0, 'msg':'Invaild Link!'})
     l = link()
     l.token = token
